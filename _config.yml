@@ -1,6 +1,6 @@
 # Site wide configuration
 
-title:            Site Title
+title:            Suhas' Ramblings
 locale:           en_US
 url:              http://localhost:4000
 
@@ -26,21 +26,21 @@ kramdown:
 
 # Site owner
 owner:
-  name: Your Name
+  name: Suhas Bharadwaj
   avatar: bio-photo.jpg
-  bio: "Describe your self."
-  email: 
+  bio: "Love Hiking. Love Hackathons and generally building new stuff ! "
+  email: suhaspbharadwaj@gmail.com
   disqus-shortname: 
-  twitter: #username
-  facebook: #username
+  twitter: suhas_dude
+  facebook: suhas.p.bharadwaj
   google:
-    plus: #username
+    plus: suhas.p.bharadwaj
     analytics: 
     verify: 
     ad-client: 
     ad-slot: 
   bing-verify: 
-  github: #username
+  github: suhas-p-bharadwaj
   stackoverflow: #http://stackoverflow.com/users/123456/username
   linkedin: #username
   instagram: #username
