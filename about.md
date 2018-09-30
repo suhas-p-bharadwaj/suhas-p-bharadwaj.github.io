@@ -26,6 +26,6 @@ You can find me at these places but the most reliable way to reach me is to send
 </p>
 </div>
 
-For all the security geeks out there, my public key is [B944F27A57CF61F5](https://keybase.io/nikhita).
+For all the security geeks out there, my keybase public key is [243F31F9CE9E1A86](https://keybase.io/suhaspbharadwaj).
 
 Legal boilerplate: The opinions expressed on this site are mine alone.
