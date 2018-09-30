@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Suhas Bharadwaj</title>
+    <description>A personal website about technical things I find useful. Also, random ramblings and rants.
+</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed-gsoc.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 30 Sep 2018 12:46:19 +0530</pubDate>
+    <lastBuildDate>Sun, 30 Sep 2018 12:46:19 +0530</lastBuildDate>
+    <generator>Jekyll v3.7.3</generator>
+    
+  </channel>
+</rss>

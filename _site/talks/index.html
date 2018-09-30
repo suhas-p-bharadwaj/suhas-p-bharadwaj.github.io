@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- add description and keywords for SEO -->
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Talks | Suhas Bharadwaj</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Talks" />
+<meta name="author" content="Suhas Bharadwaj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A personal website about technical things I find useful. Also, random ramblings and rants." />
+<meta property="og:description" content="A personal website about technical things I find useful. Also, random ramblings and rants." />
+<link rel="canonical" href="http://localhost:4000/talks/" />
+<meta property="og:url" content="http://localhost:4000/talks/" />
+<meta property="og:site_name" content="Suhas Bharadwaj" />
+<script type="application/ld+json">
+{"description":"A personal website about technical things I find useful. Also, random ramblings and rants.","author":{"@type":"Person","name":"Suhas Bharadwaj"},"@type":"WebPage","url":"http://localhost:4000/talks/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/nr-logo.jpg"},"name":"Suhas Bharadwaj"},"headline":"Talks","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="description" content="A personal website about technical things I find useful. Also, random ramblings and rants.
+">
+  
+ <meta name="keywords" content="Suhas Bharadwaj, jekyll, blog, seo, github pages, rust, competetive programming, open source, software development, introduction, tutorial, beginners, dummies, containers, linux, docker, kubernetes, containers, system programming, computers, github" />
+ 
+  
+  <meta name="author" content="Suhas Bharadwaj">
+  <meta name="copyright" content="&copy; Suhas Bharadwaj 2018">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/monokai_sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <!--<link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="196x196" href="/assets/icons/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="/assets/icons/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/icons/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
+  <link rel="apple-touch-icon" href="/assets/icons/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/favicon-114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="/assets/icons/favicon-144.png">
+  <meta name="msapplication-config" content="/assets/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">-->
+<link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="//assets/icons/avicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="A personal website about technical things I find useful. Also, random ramblings and rants.
+" />
+  <meta property="og:url" content="http://localhost:4000/talks/" />
+  <meta property="og:site_name" content="Suhas Bharadwaj" />
+  <meta property="og:title" content="Talks" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/nr-logo.jpg" />
+  <meta property="og:image:type" content="image/jpg" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+    
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Talks">
+  <meta name="twitter:description" content="A personal website about technical things I find useful. Also, random ramblings and rants.
+">
+  <meta name="twitter:image" content="http://localhost:4000/assets/nr-logo.jpg">
+  <meta name="twitter:url" content="http://localhost:4000">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/talks/">
+  <link rel="alternate" type="application/rss+xml" title="Suhas Bharadwaj" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/nr-logo.jpg" alt="Suhas Bharadwaj">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        
+          
+          <li class="nav-link"><a href="/about/">About Me</a>
+          
+        
+          
+          <li class="nav-link"><a href="/archive/">Archive</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/talks/">Talks</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+<div class="page">
+
+  <header class="post-header">
+    <h1 class="post-title">Talks</h1>
+  </header>
+
+  <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+
+
+  <article class="post-content">
+    <p><br /></p>
+<div align="center"> A list of talks I have presented at conferences and meetups. </div>
+
+<div>
+
+  <br />
+  
+    
+    
+      <h2 class="talks-section" id="y2018">2018</h2>
+      
+    
+  
+
+
+    <div class="talks">
+      <span class="post-title"><strong><big> Extending the Kubernetes API 101 </big></strong></span>
+      
+      <span class="post-date talks-subtitle"> - How to write Operators in Kubernetes. </span>
+      
+      <br />
+
+      <i class="fa fa-comments-o" aria-hidden="true"></i>
+      
+      <a href="https://devconf.info/in" title="DevConf India 2018
+https://devconf.info/in">
+      
+
+      DevConf India 2018
+      </a>
+      <br />
+
+      <span class="location">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        Bengaluru, India
+      </span>
+      <br />
+
+      <i class="fa fa-calendar" aria-hidden="true"></i> August 5, 2018
+      <br />
+
+      
+        <span class="talks-resource">
+          <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+          
+            <a href="https://speakerdeck.com/nikhita/extending-the-kubernetes-api-101">
+          
+          Slides</a>
+        </span>
+      
+      
+      
+      
+      
+  
+      
+    </div>
+
+  <br />
+  
+    
+    
+      <h2 class="talks-section" id="y2017">2017</h2>
+      
+    
+  
+
+
+    <div class="talks">
+      <span class="post-title"><strong><big> How to Contribute to Kubernetes </big></strong></span>
+      
+      <br />
+
+      <i class="fa fa-comments-o" aria-hidden="true"></i>
+      
+      <a href="http://events.linuxfoundation.org/events/kubecon-and-cloudnativecon-north-america" title="KubeCon + CloudNativeCon NA 2017
+http://events.linuxfoundation.org/events/kubecon-and-cloudnativecon-north-america">
+      
+
+      KubeCon + CloudNativeCon NA 2017
+      </a>
+      <br />
+
+      <span class="location">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        Austin, Texas
+      </span>
+      <br />
+
+      <i class="fa fa-calendar" aria-hidden="true"></i> December 5, 2017
+      <br />
+
+      
+        <span class="talks-resource">
+          <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+          
+            <a href="https://docs.google.com/presentation/d/1NJfoXynMw1LXT2jrGm8zaE7uP8Mtz5A0isdzmxISCkk/edit?usp=sharing">
+          
+          Slides</a>
+        </span>
+      
+      
+      
+      
+      
+  
+      
+        &nbsp; &nbsp;
+        <span class="talks-resource"><i class="fa fa-file-text-o" aria-hidden="true"></i> <a href="https://github.com/cncf/presentations/tree/master/kubernetes#kubernetes-introductions">Featured</a></span>
+      
+    </div>
+
+  <br />
+  
+    
+    
+  
+
+
+    <div class="talks">
+      <span class="post-title"><strong><big> How to Contribute to Kubernetes </big></strong></span>
+      
+      <span class="post-date talks-subtitle"> - an impromptu Open Spaces talk. </span>
+      
+      <br />
+
+      <i class="fa fa-comments-o" aria-hidden="true"></i>
+      
+      <a href="http://devopsdaysindia.org/" title="DevOps Days India 2017
+http://devopsdaysindia.org/">
+      
+
+      DevOps Days India 2017
+      </a>
+      <br />
+
+      <span class="location">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        Bangalore, India
+      </span>
+      <br />
+
+      <i class="fa fa-calendar" aria-hidden="true"></i> September 15, 2017
+      <br />
+
+      
+      
+      
+      
+      
+  
+      
+    </div>
+
+  <br />
+  
+    
+    
+  
+
+
+    <div class="talks">
+      <span class="post-title"><strong><big> Extending the Kubernetes API </big></strong></span>
+      
+      <span class="post-date talks-subtitle"> - How to write a controller for custom resources. </span>
+      
+      <br />
+
+      <i class="fa fa-comments-o" aria-hidden="true"></i>
+      
+      <a href="https://www.meetup.com/Kubernetes-Pune/events/242890827/" title="Kubernetes Pune Meetup
+https://www.meetup.com/Kubernetes-Pune/events/242890827/">
+      
+
+      Kubernetes Pune Meetup
+      </a>
+      <br />
+
+      <span class="location">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        Pune, India
+      </span>
+      <br />
+
+      <i class="fa fa-calendar" aria-hidden="true"></i> September 9, 2017
+      <br />
+
+      
+        <span class="talks-resource">
+          <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+          
+            <a href="https://speakerdeck.com/nikhita/extending-the-kubernetes-api-1">
+          
+          Slides</a>
+        </span>
+      
+      
+      
+      
+      
+  
+      
+        &nbsp; &nbsp;
+        <span class="talks-resource"><i class="fa fa-file-text-o" aria-hidden="true"></i> <a href="https://twitter.com/CloudNativeFdn/status/910543798509256704">Featured</a></span>
+      
+    </div>
+
+  <br />
+  
+    
+    
+  
+
+
+    <div class="talks">
+      <span class="post-title"><strong><big> The Story of $GOPATH </big></strong></span>
+      
+      <span class="post-date talks-subtitle"> - Problems and Proposals about GOPATH. </span>
+      
+      <br />
+
+      <i class="fa fa-comments-o" aria-hidden="true"></i>
+      
+      <a href="http://www.gophercon.in/" title="GopherConIndia 2017
+http://www.gophercon.in/">
+      
+
+      GopherConIndia 2017
+      </a>
+      <br />
+
+      <span class="location">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        Pune, India
+      </span>
+      <br />
+
+      <i class="fa fa-calendar" aria-hidden="true"></i> February 24, 2017
+      <br />
+
+      
+        <span class="talks-resource">
+          <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+          
+            <a href="https://speakerdeck.com/nikhita/the-story-of-gopath">
+          
+          Slides</a>
+        </span>
+      
+      
+      
+        &nbsp; &nbsp;
+        <span class="talks-resource"><i class="fa fa-file-video-o" aria-hidden="true"></i> <a href="https://youtu.be/1BAIOUON2Uo?t=16m50s">Video</a></span>
+      
+      
+      
+        &nbsp; &nbsp;
+        <span class="talks-resource">
+          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+          <a href="http://localhost:4000experience-gophercon-india">Post</a>
+        </span>
+      
+  
+      
+        &nbsp; &nbsp;
+        <span class="talks-resource"><i class="fa fa-file-text-o" aria-hidden="true"></i> <a href="https://golangnews.com/stories/1868-slides-the-story-of-gopath-by-nikhita-raghunath">Featured</a></span>
+      
+    </div>
+
+</div>
+
+
+  </article>
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <li class="nav-link"><a href="/about/">About Me</a>
+        
+        
+        
+          <li class="nav-link"><a href="/archive/">Archive</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <li class="nav-link"><a href="/talks/">Talks</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:suhaspbharadwaj@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">suhaspbharadwaj@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://twitter.com/readfead" title="Follow me on Twitter" target="_blank">
+              <i class="fa fa-twitter"></i>
+              <span class="username">readfead</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.quora.com/profile/Suhas-Bharadwaj" title="Follow me on Quora" target="_blank">
+              <i class="fa fa-quora"></i>
+              <span class="username">Suhas-Bharadwaj</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/suhas-p-bharadwaj" title="Fork me on GitHub" target="_blank">
+              <i class="fa fa-github"></i>
+              <span class="username">suhas-p-bharadwaj</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.linkedin.com/in/suhas-bharadwaj-ab06b638/" title="Connect with me on LinkedIn" target="_blank">
+              <i class="fa fa-linkedin"></i>
+              <span class="username">suhas-bharadwaj-ab06b638</span>
+            </a>
+          </li>
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS <i class="fa fa-rss"></i></a></strong></p>
+      <p class="text">A personal website about technical things I find useful. Also, random ramblings and rants.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+<script id="dsq-count-scr" src="//iammichaelhudson.disqus.com/count.js" async></script>
+<script>
+
+$(document).ready(function() {
+
+  // Syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+  //Make sure all the post's links open in a new tab
+  jQuery('.post-content a, .post-excerpt a').not('.footnote, .reversefootnote').attr ('target', '_blank');
+
+});
+
+</script>
+
+
+
+
+  </body>
+
+</html>

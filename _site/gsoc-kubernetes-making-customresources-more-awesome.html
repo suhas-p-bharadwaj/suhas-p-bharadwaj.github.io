@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- add description and keywords for SEO -->
+  <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Google Summer of Code with Kubernetes | Suhas Bharadwaj</title>
+<meta name="generator" content="Jekyll v3.7.3" />
+<meta property="og:title" content="Google Summer of Code with Kubernetes" />
+<meta name="author" content="Suhas Bharadwaj" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A technical overview of my Google Summer of Code project with Kubernetes (CNCF)." />
+<meta property="og:description" content="A technical overview of my Google Summer of Code project with Kubernetes (CNCF)." />
+<link rel="canonical" href="http://localhost:4000/gsoc-kubernetes-making-customresources-more-awesome" />
+<meta property="og:url" content="http://localhost:4000/gsoc-kubernetes-making-customresources-more-awesome" />
+<meta property="og:site_name" content="Suhas Bharadwaj" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-09-28T00:00:00+05:30" />
+<script type="application/ld+json">
+{"description":"A technical overview of my Google Summer of Code project with Kubernetes (CNCF).","author":{"@type":"Person","name":"Suhas Bharadwaj"},"@type":"BlogPosting","url":"http://localhost:4000/gsoc-kubernetes-making-customresources-more-awesome","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/nr-logo.jpg"},"name":"Suhas Bharadwaj"},"headline":"Google Summer of Code with Kubernetes","dateModified":"2017-09-28T00:00:00+05:30","datePublished":"2017-09-28T00:00:00+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/gsoc-kubernetes-making-customresources-more-awesome"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="description" content="A technical overview of my Google Summer of Code project with Kubernetes (CNCF).">
+  
+ <meta name="keywords" content="Suhas Bharadwaj, jekyll, blog, seo, github pages, rust, competetive programming, open source, software development, introduction, tutorial, beginners, dummies, containers, linux, docker, kubernetes, containers, system programming, computers, github" />
+ 
+  
+  <meta name="author" content="Suhas Bharadwaj">
+  <meta name="copyright" content="&copy; Suhas Bharadwaj 2018">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/monokai_sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <!--<link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="/assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="196x196" href="/assets/icons/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="/assets/icons/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/icons/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16.png">
+  <link rel="apple-touch-icon" href="/assets/icons/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/favicon-114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/favicon-76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="/assets/icons/favicon-144.png">
+  <meta name="msapplication-config" content="/assets/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">-->
+<link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="//assets/icons/avicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="This post originally appeared on the CNCF website. This is a technical deep dive into my Google Summer of Code project. If you want to skip the technical det..." />
+  <meta property="og:url" content="http://localhost:4000/gsoc-kubernetes-making-customresources-more-awesome" />
+  <meta property="og:site_name" content="Suhas Bharadwaj" />
+  <meta property="og:title" content="Google Summer of Code with Kubernetes" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/nr-logo.jpg" />
+  <meta property="og:image:type" content="image/jpg" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+    
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Google Summer of Code with Kubernetes">
+  <meta name="twitter:description" content="This post originally appeared on the CNCF website. This is a technical deep dive into my Google Summer of Code project. If you want to skip the technical det...">
+  <meta name="twitter:image" content="http://localhost:4000/assets/nr-logo.jpg">
+  <meta name="twitter:url" content="http://localhost:4000">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/gsoc-kubernetes-making-customresources-more-awesome">
+  <link rel="alternate" type="application/rss+xml" title="Suhas Bharadwaj" href="http://localhost:4000/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/nr-logo.jpg" alt="Suhas Bharadwaj">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+        
+          
+          <li class="nav-link">
+<a href="/about/">About Me</a>
+          
+        
+          
+          </li>
+<li class="nav-link">
+<a href="/archive/">Archive</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          </li>
+<li class="nav-link">
+<a href="/talks/">Talks</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </li>
+</ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container ">
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">Google Summer of Code with Kubernetes</h1>
+      <p class="info">by <strong>Suhas Bharadwaj</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">September 28, 2017</div>
+  <div class="post-categories">
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p><em>This post originally appeared on the <a href="https://www.cncf.io/blog/2017/09/06/gsoc-17-making-customresources-kubernetes-awesome/">CNCF website</a>. This is a technical deep dive into my Google Summer of Code project. If you want to skip the technical details and want to read about my general experience, jump to <a href="#experience-with-gsoc">here</a>.</em></p>
+
+<p>My <a href="https://summerofcode.withgoogle.com/organizations/6540924424290304/#5982049109278720">Google Summer of Code project</a> with CNCF was to improve “ThirdPartyResources” in Kubernetes. ThirdPartyResources were succeeded by the much more stable CustomResourceDefinitions in 1.7.</p>
+
+<p>CustomResourceDefinitions provide a way to extend the Kubernetes API and define your own object kinds. Once a CustomResourceDefinition (CRD) has been created, you can create objects or instances of these kinds. These custom objects are called “CustomResources”. You can read more about CRDs <a href="https://blog.openshift.com/kubernetes-deep-dive-api-server-part-3a/">here</a>.</p>
+
+<p>Combined with custom controllers, this gives you a powerful way to encode domain knowledge for specific applications (<a href="https://coreos.com/blog/introducing-operators.html">operators</a>) into an extension of the Kubernetes API.</p>
+
+<p>However, there is <a href="https://github.com/kubernetes/features/issues/95">more work</a> needed to make CustomResources really look like native resources and this is where my project comes in.</p>
+
+<p>My project tackled two important problems:</p>
+
+<ol>
+  <li>
+    <p><strong>Validation for CustomResources</strong> - When adding objects for a custom type, create and update operations succeed as long as the contents were valid JSON. There was no way to prevent invalid objects to be stored on the server side. This is now solved by validation via JSON schema and will be present in 1.8.</p>
+  </li>
+  <li>
+    <p><strong>SubResources for CustomResources</strong> - CustomResources do not have a spec/status split, that is, they are free-form JSON. This also means that we do not provide subresources for them. As a part of GSoC, a design proposal has been created to add /status and /scale subresources for CustomResources. The proposal is still in discussion and will mostly be implemented for 1.9.</p>
+  </li>
+</ol>
+
+<p>Before discussing further, I’d like to mention that none of this would have been possible without the help from my mentor, <a href="https://twitter.com/the1stein">Dr. Stefan Schimanski</a>. He has been a fantastic mentor and guide!</p>
+
+<p>Now, let’s see each feature in detail separately.</p>
+
+<h2 id="validation">Validation</h2>
+
+<p>If you would like to read in further detail, the <a href="https://github.com/kubernetes/community/pull/708">design proposal</a>, <a href="https://github.com/kubernetes/kubernetes/pull/47263/">implementation PR</a> and the <a href="https://github.com/kubernetes/kubernetes.github.io/pull/5290">docs PR</a> are available.</p>
+
+<h3 id="what-this-means-for-you">What this means for you</h3>
+
+<ul>
+  <li>
+    <p>The biggest benefit of validation is to prevent entering any invalid data. This can help you to avoid any garbage data getting into your system. Example: If you have a replicas field, anyone can set the value to something huge like 10,000! If it is not protected, then the whole cluster could be DOSed by one malicious actor.</p>
+  </li>
+  <li>
+    <p>Validation will provide consistency and you can enforce a particular structure for your resource.</p>
+  </li>
+  <li>
+    <p>Since this uses OpenAPI schema (a variant of JSON Schema), the validation schema in a CustomResourceDefinition can be used to automatically provide documentation in the future. Moreover, you will be able to create Java and Python clients using OpenAPI as the basis.</p>
+  </li>
+</ul>
+
+<h3 id="change-in-the-api">Change in the API</h3>
+
+<p>A new field <code class="highlighter-rouge">Validation</code> is added to the spec of the CustomResourceDefinition (CRD). <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#schemaObject">OpenAPI v3 schema</a> is used for validation under <code class="highlighter-rouge">CRD.Spec.Validation.OpenAPIV3Schema</code>. The language is essentially JSON Schema. OpenAPI builds on that and we use that dialect to be able to reuse the specs for documentation. This way it will be possible to build clients for Java, Python and other languages in the future based on the OpenAPI spec.</p>
+
+<p>OpenAPI provides a standardized declarative specification language. Different keywords are utilized to put constraints on the data. Thus it provides ways to make assertions about what a valid document must look like.</p>
+
+<p>It is already used in Swagger/OpenAPI specs in Kubernetes so client side validation by adding this dynamically to the main OpenAPI spec might come in future versions.</p>
+
+<figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="c">// CustomResourceDefinitionSpec describes how a user wants their resource to appear.</span><span class="x">
+</span><span class="k">type</span><span class="x"> </span><span class="n">CustomResourceDefinitionSpec</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="c">// Group is the group this resource belongs in</span><span class="x">
+    </span><span class="n">Group</span><span class="x"> </span><span class="kt">string</span><span class="x">
+    </span><span class="c">// Version is the version this resource belongs in</span><span class="x">
+    </span><span class="n">Version</span><span class="x"> </span><span class="kt">string</span><span class="x">
+    </span><span class="c">// Names are the names used to describe this custom resource</span><span class="x">
+    </span><span class="n">Names</span><span class="x"> </span><span class="n">CustomResourceDefinitionNames</span><span class="x">
+    </span><span class="c">// Scope indicates whether this resource is cluster or namespace scoped.</span><span class="x">
+    </span><span class="c">// Default is namespaced</span><span class="x">
+    </span><span class="n">Scope</span><span class="x"> </span><span class="n">ResourceScope</span><span class="x">
+    </span><span class="c">// Validation describes the validation methods for CustomResources</span><span class="x">
+    </span><span class="n">Validation</span><span class="x"> </span><span class="o">*</span><span class="n">CustomResourceValidation</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="c">// CustomResourceValidation is a list of validation methods for CustomResources.</span><span class="x">
+</span><span class="k">type</span><span class="x"> </span><span class="n">CustomResourceValidation</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="c">// OpenAPIV3Schema is the OpenAPI v3 schema to be validated against.</span><span class="x">
+    </span><span class="n">OpenAPIV3Schema</span><span class="x"> </span><span class="o">*</span><span class="n">JSONSchemaProps</span><span class="x">
+</span><span class="p">}</span></code></pre></figure>
+
+<h3 id="how-to-use-validation">How to use validation</h3>
+
+<h4 id="enable-the-feature-gate">Enable the feature gate</h4>
+
+<p>Please note that <code class="highlighter-rouge">CustomResourceValidation</code> is an alpha feature in an already beta API. So it is not on by default and exists behind a feature gate. To use this feature, you need to enable the feature gate. This can be achieved by passing the following flag (along with others) to kube-apiserver (Google Container Engine will also allow to create alpha clusters to play with this feature as soon as they support 1.8).</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>kube-apiserver <span class="nt">--feature-gates</span> <span class="nv">CustomResourceValidation</span><span class="o">=</span><span class="nb">true</span></code></pre></figure>
+
+<h4 id="create-a-customresourcedefinition">Create a CustomResourceDefinition</h4>
+
+<p>Now that the setup is taken care of, let’s create a CRD:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apiextensions.k8s.io/v1beta1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">CustomResourceDefinition</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">apps.mygroup.example.com</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">group</span><span class="pi">:</span> <span class="s">mygroup.example.com</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s">v1</span>
+  <span class="na">scope</span><span class="pi">:</span> <span class="s">Namespaced</span>
+  <span class="na">names</span><span class="pi">:</span>
+    <span class="na">plural</span><span class="pi">:</span> <span class="s">apps</span>
+    <span class="na">singular</span><span class="pi">:</span> <span class="s">app</span>
+    <span class="na">kind</span><span class="pi">:</span> <span class="s">App</span>
+    <span class="na">listKind</span><span class="pi">:</span> <span class="s">AppList</span>
+  <span class="na">validation</span><span class="pi">:</span>
+    <span class="na">openAPIV3Schema</span><span class="pi">:</span>
+      <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">spec</span><span class="pi">:</span>
+          <span class="na">properties</span><span class="pi">:</span>
+            <span class="na">version</span><span class="pi">:</span>
+                <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+                <span class="na">enum</span><span class="pi">:</span>
+            <span class="err">   </span><span class="pi">-</span> <span class="s2">"</span><span class="s">v1.0.0"</span>
+               <span class="pi">-</span> <span class="s2">"</span><span class="s">v1.0.1"</span>
+            <span class="na">replicas</span><span class="pi">:</span>
+                <span class="na">type</span><span class="pi">:</span> <span class="s">integer</span>
+                <span class="na">minimum</span><span class="pi">:</span> <span class="s">1</span>
+                <span class="na">maximum</span><span class="pi">:</span> <span class="s">10</span>
+            <span class="na">storage</span><span class="pi">:</span>
+                <span class="na">properties</span><span class="pi">:</span>
+                <span class="na">memory</span><span class="pi">:</span>
+                  <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+                  <span class="na">pattern</span><span class="pi">:</span> <span class="s2">"</span><span class="s">^[0-9]+(Mi|Gi)"</span>
+            <span class="na">retention</span><span class="pi">:</span>
+                <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+                <span class="na">pattern</span><span class="pi">:</span> <span class="s2">"</span><span class="s">^[0-9]+(h|d|m|y)"</span></code></pre></figure>
+
+<p>The schema in the above CRD applies following validations for the instance:</p>
+
+<ol>
+  <li>
+<code class="highlighter-rouge">spec.version</code> must be a string and must be either “v1.0.0” or “v1.0.1”.</li>
+  <li>
+<code class="highlighter-rouge">spec.replicas</code> must be an integer and must have a minimum value of 1 and a maximum value of 10.</li>
+  <li>
+<code class="highlighter-rouge">spec.storage.memory</code> must be a string and must be of the form described by the regular expression. Example: “500Mi”.</li>
+  <li>
+<code class="highlighter-rouge">spec.retention</code> must be a string and must be of the form described by the regular expression. Example: “3d”.</li>
+</ol>
+
+<p>Now that we are clear with how it is structured, it’s time to create the CustomResourceDefinition:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>kubectl create <span class="nt">-f</span> crd.yaml
+customresourcedefinition <span class="s2">"apps.mygroup.example.com"</span> created</code></pre></figure>
+
+<h4 id="create-a-customresource">Create a CustomResource</h4>
+
+<p>With the CustomResourceDefinition created we can create instances, called CustomResources:</p>
+
+<p><strong>1. Invalid CustomResource:</strong></p>
+
+<p>This is an object of kind <code class="highlighter-rouge">App</code> which has:</p>
+
+<ul>
+  <li>invalid <code class="highlighter-rouge">spec.version</code> - “v1.0.2”</li>
+  <li>invalid  <code class="highlighter-rouge">spec.replicas</code> - 15</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">mygroup.example.com/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">App</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">example-app</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">v1.0.2"</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="s">15</span>
+  <span class="na">storage</span><span class="pi">:</span>
+    <span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">500Mi"</span>
+  <span class="na">retention</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2d"</span></code></pre></figure>
+
+<p>Create it using kubectl:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>kubectl create <span class="nt">-f</span> app.yaml</code></pre></figure>
+
+<p>Since it is invalid, we get an error. The last two lines show the fields where validation failed and the schema that these fields must satisfy.</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">The App <span class="s2">"example-app"</span> is invalid: <span class="o">[]</span>: Invalid value: map[string]interface <span class="o">{}{</span><span class="s2">"apiVersion"</span>:<span class="s2">"mygroup.example.com/v1"</span>, <span class="s2">"kind"</span>:<span class="s2">"App"</span>, <span class="s2">"metadata"</span>:map[string]interface <span class="o">{}{</span><span class="s2">"creationTimestamp"</span>:<span class="s2">"2017-08-31T20:52:54Z"</span>, <span class="s2">"uid"</span>:<span class="s2">"5c674651-8e8e-11e7-86ad-f0761cb232d1"</span>, <span class="s2">"selfLink"</span>:<span class="s2">""</span>, <span class="s2">"clusterName"</span>:<span class="s2">""</span>, <span class="s2">"name"</span>:<span class="s2">"example-app"</span>, <span class="s2">"namespace"</span>:<span class="s2">"default"</span>, <span class="s2">"deletionTimestamp"</span>:interface <span class="o">{}(</span>nil<span class="o">)</span>, <span class="s2">"deletionGracePeriodSeconds"</span>:<span class="o">(</span><span class="k">*</span>int64<span class="o">)(</span>nil<span class="o">)}</span>, <span class="s2">"spec"</span>:map[string]interface <span class="o">{}{</span><span class="s2">"replicas"</span>:15, <span class="s2">"retention"</span>:<span class="s2">"2d"</span>, <span class="s2">"storage"</span>:map[string]interface <span class="o">{}{</span><span class="s2">"memory"</span>:<span class="s2">"500Mi"</span><span class="o">}</span>, <span class="s2">"version"</span>:<span class="s2">"v1.0.2"</span><span class="o">}}</span>:
+validation failure list:
+spec.replicas <span class="k">in </span>body should be less than or equal to 10
+spec.version <span class="k">in </span>body should be one of <span class="o">[</span>v1.0.0 v1.0.1]</code></pre></figure>
+
+<ol>
+  <li>Valid CustomResource</li>
+</ol>
+
+<p>This is a valid object of kind <code class="highlighter-rouge">App</code>:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">mygroup.example.com/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">App</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">example-app</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">v1.0.0"</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="s">3</span>
+  <span class="na">storage</span><span class="pi">:</span>
+    <span class="na">memory</span><span class="pi">:</span> <span class="s2">"</span><span class="s">500Mi"</span>
+  <span class="na">retention</span><span class="pi">:</span> <span class="s2">"</span><span class="s">2d"</span></code></pre></figure>
+
+<p>Create it using kubectl:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># create the example-app</span>
+<span class="nv">$ </span>kubectl create <span class="nt">-f</span> app.yaml
+app <span class="s2">"example-app"</span> created
+
+<span class="c"># verify that it was created successfully</span>
+<span class="nv">$ </span>kubectl get apps
+NAME            AGE
+example-app     5s</code></pre></figure>
+
+<p><strong>Note</strong>: If the schema is made stricter later, the existing CustomResources might no longer comply with the schema. This will make them unchangeable and essentially read-only.
+To avoid this, it is the <em>responsibility of the user</em> to make sure that any changes made to the schema are such that the existing CustomResources remain validated.</p>
+
+<h3 id="how-it-works-internally">How it works internally</h3>
+
+<p> 
+<span>
+  <img src="/assets/gsoc-1.png" alt="">
+</span></p>
+
+<p><span class="lightbox-caption">
+    Creating a CRD
+  </span></p>
+
+<p>Let’s see what happens under the hood for validation when you create a CRD using <code class="highlighter-rouge">$ kubectl create -f crd.yaml.</code></p>
+
+<ul>
+  <li>
+    <p>The Kubernetes API implementation has two major components - the internal structures and the versioned (external) APIs. The internal representation of an API object is decoupled from any version and provides a lot of freedom to evolve the code. For CRDs, the current such external version is <code class="highlighter-rouge">v1beta1</code>.</p>
+  </li>
+  <li>
+    <p>When you create a CRD using kubectl, the HTTP path tells the apiserver which version to use. A JSON or protobuf decoder converts this payload to the v1beta1 Go types (<a href="https://github.com/kubernetes/kubernetes/blob/92db97dfcc5eb45dcb0f686526041438d0b31a2e/staging/src/k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1/types.go"><code class="highlighter-rouge">types.go</code></a> and <a href="https://github.com/kubernetes/kubernetes/blob/92db97dfcc5eb45dcb0f686526041438d0b31a2e/staging/src/k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1/types_jsonschema.go"><code class="highlighter-rouge">types_jsonschema.go</code></a>).</p>
+  </li>
+  <li>
+    <p>The <code class="highlighter-rouge">v1beta1</code> types are now converted to the internal types using (mostly) autogenerated conversion functions. In some cases, custom conversion functions (<a href="https://github.com/kubernetes/kubernetes/blob/92db97dfcc5eb45dcb0f686526041438d0b31a2e/staging/src/k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1/conversion.go"><code class="highlighter-rouge">conversion.go</code></a>) are also used.</p>
+  </li>
+  <li>
+    <p>Then the schema in <code class="highlighter-rouge">.Spec.Validation.OpenAPIV3Schema</code> is validated to ensure that it complies to OpenAPI v3 (<a href="https://github.com/kubernetes/kubernetes/blob/92db97dfcc5eb45dcb0f686526041438d0b31a2e/staging/src/k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/validation/validation.go"><code class="highlighter-rouge">apiextensions/validation.go</code></a>).</p>
+  </li>
+  <li>
+    <p>Once the schema is validated, the internal types are converted to go-openapi’s (go-openapi is a Go implementation of the OpenAPI standard) types (<a href="https://github.com/kubernetes/kubernetes/blob/92db97dfcc5eb45dcb0f686526041438d0b31a2e/staging/src/k8s.io/apiextensions-apiserver/pkg/apiserver/validation/validation.go"><code class="highlighter-rouge">validation.go</code></a> and <a href="https://github.com/kubernetes/kubernetes/blob/92db97dfcc5eb45dcb0f686526041438d0b31a2e/staging/src/k8s.io/apiextensions-apiserver/pkg/apiserver/customresource_handler.go"><code class="highlighter-rouge">customresource_handler.go</code></a>) to use an OpenAPI validator.</p>
+  </li>
+  <li>
+    <p>Now, your CRD is created and the schema is ready to be used for validation of CustomResource instances.</p>
+  </li>
+</ul>
+
+<p><span>
+  <img src="/assets/gsoc-2.png" alt="">
+</span></p>
+
+<p><span class="lightbox-caption">
+    Creating a CustomResource
+  </span></p>
+
+<ul>
+  <li>
+    <p>When you create such an instance of this custom type i.e. the CustomResource, the whole object is validated against the schema in the create and update handlers for the CustomResource (<a href="https://github.com/kubernetes/kubernetes/blob/92db97dfcc5eb45dcb0f686526041438d0b31a2e/staging/src/k8s.io/apiextensions-apiserver/pkg/registry/customresource/strategy.go"><code class="highlighter-rouge">strategy.go</code></a>).</p>
+  </li>
+  <li>
+    <p>If the object is invalid, it will be rejected and you can avoid entering invalid data.</p>
+  </li>
+</ul>
+
+<p>This was all about validation. Let’s shift focus to Subresources now.</p>
+
+<h2 id="subresources">SubResources</h2>
+
+<p>As a part of Google Summer of Code, I also submitted a <a href="https://github.com/kubernetes/community/pull/913">design proposal</a> along with my mentor, Dr. Stefan Schimanski, to add <code class="highlighter-rouge">/status</code> and <code class="highlighter-rouge">/scale</code> subresources for CustomResources. This proposal was fun to write and taught me a lot about the existing API semantics! Moreover, it spawned a number of discussions on what the existing API semantics in Kubernetes actually are. If you are interested in contributing to Kubernetes, the design proposal might prove useful to you too.</p>
+
+<h3 id="api-semantics">API Semantics</h3>
+
+<p>Just like validation, a new field is introduced in the spec of CustomResourceDefinition - called SubResources. SubResources can be of two types - Status and Scale (in Kubernetes there are some more special purpose subresources, but for CRDs we concentrate on these two).</p>
+
+<p>The custom resource instance is free-form JSON (possibly validated though with CRD validation), so we need to know the JSON paths to spec and status. These JSON paths are mentioned in the SubResources field in the CRD. Hence, we get a spec/status split for CustomResources.</p>
+
+<p>Now subresources can make use of this structure. Let’s take a look at each subresource separately.</p>
+
+<h3 id="status">Status</h3>
+
+<p>Firstly, some background about how Kubernetes works: The API makes a distinction between the specification of the desired state of an object (the nested object field called “spec”) and the status of the object at the current time (the nested object field called “status”).  A controller tries to bring the current state to the desired state.</p>
+
+<p>In this case, a custom controller can use the status field to inform about the current status of whatever is being managed by it. The controller can write to the status endpoint, updating the <code class="highlighter-rouge">.status</code> path in the CustomResource. After this, the whole object is validated again to ensure <code class="highlighter-rouge">.status</code> does not contain incorrect values.</p>
+
+<p>One main reason to have the spec/status split  is that one can restrict access to the spec and the status independently. E.g. a user should only be able to modify the spec, while the controller should only be able to write the status.</p>
+
+<h3 id="scale">Scale</h3>
+
+<p>There are two common ways to use the scale subresource:</p>
+
+<ol>
+  <li>A custom controller (like an autoscaler) can write to the <code class="highlighter-rouge">/scale</code> endpoint.</li>
+  <li>Using kubectl scale.</li>
+</ol>
+
+<p>In such a setup, CustomResources can be used to control other resources (like pods). These resources can now be scaled as per the the number of desired replicas mentioned in the <code class="highlighter-rouge">spec.replicas</code> JSON path.</p>
+
+<p>As an example, imagine that a CustomResource describes a certain kind of pods, like a ReplicaSet does in Kubernetes itself. Let’s say the CustomResource describes the nodes of a distributed database (like Cassandra). If the amount of data or the load of a website goes up, a custom controller can scale the DB.</p>
+
+<p>After the resources are scaled, a custom controller counts the number of replicas at the current state and writes to the <code class="highlighter-rouge">/status</code> endpoint updating <code class="highlighter-rouge">status.replicas</code>. This status replica field is replicated to the <code class="highlighter-rouge">/scale</code> subresource as well.</p>
+
+<p>It is extremely powerful to have subresources because custom controllers can make use of this to manage resources more efficiently and with much ease.</p>
+
+<h2 id="experience-with-gsoc">Experience with GSoC</h2>
+
+<p>As I’ve said, I feel really lucky to be working with my mentor, <a href="https://twitter.com/the1stein">Dr. Stefan Schimanski</a>. He’s been an incredible support throughout the program, and has made it a GREAT experience. I’m really thankful for him for being so detailed and thorough in his answers, and for being so consistently responsive and helpful with any of my questions or concerns. He always gave me useful pointers if I was stuck and provided positive affirmations whenever I overcame a challenge. Not only this, he also helped me to integrate with the community better. I can’t imagine a better mentor!</p>
+
+<p>I have been working with the API Machinery side of things and while having an awesome mentor is awesome, working with an awesome team is double awesome! A big thanks to the whole API Machinery SIG, especially <a href="https://twitter.com/the1stein">Dr. Stefan Schimanski</a>, <a href="https://github.com/deads2k">David Eads</a> and <a href="https://twitter.com/enisoc">Anthony Yeh</a> for the numerous code reviews and help with the design proposal.</p>
+
+<p>During GSoC, I also attended GopherCon Denver where I met <a href="https://twitter.com/djkonro">Konrad Djimeli</a>, another GSoC student from CNCF. We spoke about all the exciting, overwhelming and bewildering moments that we experienced throughout the program. It was nice meeting someone going through a similar journey!</p>
+
+<p> 
+<img alt="Having a blast with Konrad and others at GopherCon Denver" src="/assets/gsoc-3.png">
+ </p>
+
+<p>Implementing validation taught me a <em>lot</em> about the tooling around the Kubernetes API - generators, marshalling, fuzzers, protobuf serialization, etc. It took a good amount of learning and effort to implement validation and it felt amazing to see it finally being merged!</p>
+
+<p> </p>
+<div align="center">
+<blockquote class="twitter-tweet" data-lang="en">
+<p lang="en" dir="ltr">Wow! CustomResource validation merged in <a href="https://twitter.com/kubernetesio?ref_src=twsrc%5Etfw">@kubernetesio</a>. That's huge! Kudos to our awesome <a href="https://twitter.com/gsoc?ref_src=twsrc%5Etfw">@gsoc</a> student <a href="https://twitter.com/TheNikhita?ref_src=twsrc%5Etfw">@TheNikhita</a> <a href="https://t.co/emeA3hgRCL">https://t.co/emeA3hgRCL</a></p>— Stefan Schimanski (@the_sttts) <a href="https://twitter.com/the_sttts/status/902763680525320192?ref_src=twsrc%5Etfw">August 30, 2017</a>
+</blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<p> </p>
+
+<div align="center">
+<blockquote class="twitter-tweet" data-lang="en">
+<p lang="en" dir="ltr">Love seeing <a href="https://twitter.com/hashtag/gsoc?src=hash&amp;ref_src=twsrc%5Etfw">#gsoc</a> interns making impact in <a href="https://twitter.com/kubernetesio?ref_src=twsrc%5Etfw">@kubernetesio</a> <a href="https://t.co/zSPxOZIZx7">https://t.co/zSPxOZIZx7</a> <a href="https://t.co/rj9ooTHFOo">https://t.co/rj9ooTHFOo</a></p>— Brandon Philips (@BrandonPhilips) <a href="https://twitter.com/BrandonPhilips/status/867821071872909312?ref_src=twsrc%5Etfw">May 25, 2017</a>
+</blockquote>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<p> </p>
+
+<p>Google Summer of Code is an exceptional opportunity for both students and mentors.</p>
+
+<ul>
+  <li>If you are a student, don’t think twice - apply to CNCF! You will get to learn a lot and be part of an incredibly friendly and thriving community.</li>
+  <li>If you are already a core contributor, please consider being a mentor - you get a chance to be a mentor you wish you had when you started out. You get to be a multiplier and share your knowledge with others!</li>
+</ul>
+
+<p>All in all, I had great fun and will continue contributing even more. This is just the beginning! <img class="emoji" title=":smile:" alt=":smile:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png" height="20" width="20"></p>
+
+<p><em>Thanks to Dr. Stefan Schimanski for reviewing drafts of this post.</em></p>
+
+
+</article>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=Google+Summer+of+Code+with+Kubernetes&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fgsoc-kubernetes-making-customresources-more-awesome&amp;via=readfead" onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Flocalhost%3A4000%2Fgsoc-kubernetes-making-customresources-more-awesome" onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+</section>
+
+  <section class="post-navigation">
+    <span class="prev-post">
+      
+        <a href="/install-multiple-versions-go">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+          </span>
+          <span class="page-number">Installing Go from source</span>
+        </a>
+      
+    </span>
+    <span class="next-post">
+      
+        <a href="/list-of-gsoc-umbrella-orgs">
+          <span class="page-number">List of GSoC Umbrella Organizations</span>
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      
+    </span>
+  </section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'suhasramblings';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+        
+        
+          <li class="nav-link">
+<a href="/about/">About Me</a>
+        
+        
+        
+          </li>
+<li class="nav-link">
+<a href="/archive/">Archive</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          </li>
+<li class="nav-link">
+<a href="/talks/">Talks</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </li>
+</ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:suhaspbharadwaj@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">suhaspbharadwaj@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://twitter.com/readfead" title="Follow me on Twitter" target="_blank">
+              <i class="fa fa-twitter"></i>
+              <span class="username">readfead</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.quora.com/profile/Suhas-Bharadwaj" title="Follow me on Quora" target="_blank">
+              <i class="fa fa-quora"></i>
+              <span class="username">Suhas-Bharadwaj</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://github.com/suhas-p-bharadwaj" title="Fork me on GitHub" target="_blank">
+              <i class="fa fa-github"></i>
+              <span class="username">suhas-p-bharadwaj</span>
+            </a>
+          </li>
+          
+        
+          
+          <li>
+            <a href="https://www.linkedin.com/in/suhas-bharadwaj-ab06b638/" title="Connect with me on LinkedIn" target="_blank">
+              <i class="fa fa-linkedin"></i>
+              <span class="username">suhas-bharadwaj-ab06b638</span>
+            </a>
+          </li>
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS <i class="fa fa-rss"></i></a></strong></p>
+      <p class="text">A personal website about technical things I find useful. Also, random ramblings and rants.
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+<script id="dsq-count-scr" src="//iammichaelhudson.disqus.com/count.js" async></script>
+<script>
+
+$(document).ready(function() {
+
+  // Syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+  //Make sure all the post's links open in a new tab
+  jQuery('.post-content a, .post-excerpt a').not('.footnote, .reversefootnote').attr ('target', '_blank');
+
+});
+
+</script>
+
+
+
+
+  </body>
+
+</html>

@@ -1,30 +1,34 @@
 ---
 layout: page
-title: About
+title: About Me
+description: Nikhita Raghunath is a software developer who loves distributed systems and open source.
+permalink: /about/
 ---
+<br>
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+
+Hey there! I am Suhas Bharadwaj and I dabble in Full stack development. I am currently employed at Cisco System, Bangalore
+
+I am a core contributor to [Kubernetes](https://kubernetes.io/).
+Previously, I was an intern at [Red Hat](https://www.redhat.com/en) and worked on the extensibility of the Kubernetes API.
+I was also a Google Summer of Code (2017) student for the Cloud Native Computing Foundation (CNCF) and worked on Kubernetes. You can know more about my GSoC work [here](https://github.com/nikhita/gsoc-meta-k8s).
+Now, I volunteer as a [GSoC Organization Admin](https://github.com/cncf/soc#organization-admins) for CNCF and help run the program for them.
+
+You can find me at these places but the most reliable way to reach me is to send an email. Please note that due to the large influx of email, it might take 2-3 business days for me to reply back.
+
+<div align="center">
+<p>
+<a href="mailto:suhaspbharadwaj@gmail.com"><i class="fa fa-envelope-o fa-fw" aria-hidden="true" style="font-size:40px;color:#2980b9"></i></a>
+&nbsp; &nbsp; &nbsp;
+<a href="https://github.com/suhas-p-bharadwaj"><i class="fa fa-github" aria-hidden="true" style="font-size:40px;color:#2980b9"></i></a>
+&nbsp; &nbsp; &nbsp;
+<a href="https://twitter.com/readfead"><i class="fa fa-twitter" aria-hidden="true" style="font-size:40px;color:#2980b9"></i></a>
+&nbsp; &nbsp; &nbsp;
+<a href="https://www.linkedin.com/in/suhas-bharadwaj-ab06b638/"><i class="fa fa-linkedin" aria-hidden="true" style="font-size:40px;color:#2980b9"></i></a>
+&nbsp; &nbsp; &nbsp;
 </p>
+</div>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+For all the security geeks out there, my public key is [B944F27A57CF61F5](https://keybase.io/nikhita).
 
-There are currently two themes built on Poole:
-
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+Legal boilerplate: The opinions expressed on this site are mine alone.
