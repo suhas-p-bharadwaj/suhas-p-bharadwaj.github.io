@@ -150,10 +150,6 @@
         
           
         
-          
-        
-          
-        
       </ul>
     </nav>
   </div>
@@ -175,12 +171,12 @@
 
 
   <article class="post-content">
-    <p><br /></p>
+    <br>
 <div align="center"> A list of talks I have presented at conferences and meetups. </div>
 
 <div>
 
-  <br />
+  <br>
   
     
     
@@ -195,26 +191,27 @@
       
       <span class="post-date talks-subtitle"> - How to write Operators in Kubernetes. </span>
       
-      <br />
+      <br>
 
       <i class="fa fa-comments-o" aria-hidden="true"></i>
       
-      <a href="https://devconf.info/in" title="DevConf India 2018
+      <a href="https://devconf.info/in"
+       title="DevConf India 2018
 https://devconf.info/in">
       
 
       DevConf India 2018
       </a>
-      <br />
+      <br>
 
       <span class="location">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         Bengaluru, India
       </span>
-      <br />
+      <br>
 
       <i class="fa fa-calendar" aria-hidden="true"></i> August 5, 2018
-      <br />
+      <br>
 
       
         <span class="talks-resource">
@@ -233,7 +230,7 @@ https://devconf.info/in">
       
     </div>
 
-  <br />
+  <br>
   
     
     
@@ -246,26 +243,27 @@ https://devconf.info/in">
     <div class="talks">
       <span class="post-title"><strong><big> How to Contribute to Kubernetes </big></strong></span>
       
-      <br />
+      <br>
 
       <i class="fa fa-comments-o" aria-hidden="true"></i>
       
-      <a href="http://events.linuxfoundation.org/events/kubecon-and-cloudnativecon-north-america" title="KubeCon + CloudNativeCon NA 2017
+      <a href="http://events.linuxfoundation.org/events/kubecon-and-cloudnativecon-north-america"
+       title="KubeCon + CloudNativeCon NA 2017
 http://events.linuxfoundation.org/events/kubecon-and-cloudnativecon-north-america">
       
 
       KubeCon + CloudNativeCon NA 2017
       </a>
-      <br />
+      <br>
 
       <span class="location">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         Austin, Texas
       </span>
-      <br />
+      <br>
 
       <i class="fa fa-calendar" aria-hidden="true"></i> December 5, 2017
-      <br />
+      <br>
 
       
         <span class="talks-resource">
@@ -287,7 +285,7 @@ http://events.linuxfoundation.org/events/kubecon-and-cloudnativecon-north-americ
       
     </div>
 
-  <br />
+  <br>
   
     
     
@@ -299,26 +297,27 @@ http://events.linuxfoundation.org/events/kubecon-and-cloudnativecon-north-americ
       
       <span class="post-date talks-subtitle"> - an impromptu Open Spaces talk. </span>
       
-      <br />
+      <br>
 
       <i class="fa fa-comments-o" aria-hidden="true"></i>
       
-      <a href="http://devopsdaysindia.org/" title="DevOps Days India 2017
+      <a href="http://devopsdaysindia.org/"
+       title="DevOps Days India 2017
 http://devopsdaysindia.org/">
       
 
       DevOps Days India 2017
       </a>
-      <br />
+      <br>
 
       <span class="location">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         Bangalore, India
       </span>
-      <br />
+      <br>
 
       <i class="fa fa-calendar" aria-hidden="true"></i> September 15, 2017
-      <br />
+      <br>
 
       
       
@@ -329,7 +328,7 @@ http://devopsdaysindia.org/">
       
     </div>
 
-  <br />
+  <br>
   
     
     
@@ -341,26 +340,27 @@ http://devopsdaysindia.org/">
       
       <span class="post-date talks-subtitle"> - How to write a controller for custom resources. </span>
       
-      <br />
+      <br>
 
       <i class="fa fa-comments-o" aria-hidden="true"></i>
       
-      <a href="https://www.meetup.com/Kubernetes-Pune/events/242890827/" title="Kubernetes Pune Meetup
+      <a href="https://www.meetup.com/Kubernetes-Pune/events/242890827/"
+       title="Kubernetes Pune Meetup
 https://www.meetup.com/Kubernetes-Pune/events/242890827/">
       
 
       Kubernetes Pune Meetup
       </a>
-      <br />
+      <br>
 
       <span class="location">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         Pune, India
       </span>
-      <br />
+      <br>
 
       <i class="fa fa-calendar" aria-hidden="true"></i> September 9, 2017
-      <br />
+      <br>
 
       
         <span class="talks-resource">
@@ -382,7 +382,7 @@ https://www.meetup.com/Kubernetes-Pune/events/242890827/">
       
     </div>
 
-  <br />
+  <br>
   
     
     
@@ -394,26 +394,27 @@ https://www.meetup.com/Kubernetes-Pune/events/242890827/">
       
       <span class="post-date talks-subtitle"> - Problems and Proposals about GOPATH. </span>
       
-      <br />
+      <br>
 
       <i class="fa fa-comments-o" aria-hidden="true"></i>
       
-      <a href="http://www.gophercon.in/" title="GopherConIndia 2017
+      <a href="http://www.gophercon.in/"
+       title="GopherConIndia 2017
 http://www.gophercon.in/">
       
 
       GopherConIndia 2017
       </a>
-      <br />
+      <br>
 
       <span class="location">
         <i class="fa fa-map-marker" aria-hidden="true"></i>
         Pune, India
       </span>
-      <br />
+      <br>
 
       <i class="fa fa-calendar" aria-hidden="true"></i> February 24, 2017
-      <br />
+      <br>
 
       
         <span class="talks-resource">
@@ -480,10 +481,6 @@ http://www.gophercon.in/">
         
         
           <li class="nav-link"><a href="/talks/">Talks</a>
-        
-        
-        
-        
         
         
         

@@ -1,208 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-    
-    <url>
-      <loc>http://localhost:4000/list-of-gsoc-umbrella-orgs</loc>
-      
-        <lastmod>2018-08-26T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/gsoc-kubernetes-making-customresources-more-awesome</loc>
-      
-        <lastmod>2017-09-28T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/install-multiple-versions-go</loc>
-      
-        <lastmod>2017-06-25T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/how-to-update-vscode</loc>
-      
-        <lastmod>2017-06-20T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/experience-gophercon-india</loc>
-      
-        <lastmod>2017-04-29T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/changing-my-github-username</loc>
-      
-        <lastmod>2017-04-15T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/introduction-to-keybase</loc>
-      
-        <lastmod>2017-01-22T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/github-two-factor-authentication</loc>
-      
-        <lastmod>2017-01-15T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/setting-import-path-for-go-generate</loc>
-      
-        <lastmod>2016-10-23T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/ghc-registeration</loc>
-      
-        <lastmod>2016-09-03T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/seo-jekyll</loc>
-      
-        <lastmod>2016-08-19T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/build-blog-using-github-jekyll</loc>
-      
-        <lastmod>2016-08-18T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://localhost:4000/introducing-lanyon</loc>
-      
-        <lastmod>2014-01-02T00:00:00+05:30</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-    
-  
   
     
       
       <url>
         <loc>http://localhost:4000/about/</loc>
         
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
+          <lastmod>2018-09-30T14:19:26+05:30</lastmod>
         
         
           <changefreq>monthly</changefreq>
@@ -219,7 +24,7 @@
       <url>
         <loc>http://localhost:4000/archive/</loc>
         
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
+          <lastmod>2018-09-30T14:19:26+05:30</lastmod>
         
         
           <changefreq>monthly</changefreq>
@@ -236,7 +41,7 @@
       <url>
         <loc>http://localhost:4000/atom.xml</loc>
         
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
+          <lastmod>2018-09-30T14:19:26+05:30</lastmod>
         
         
           <changefreq>monthly</changefreq>
@@ -253,7 +58,7 @@
       <url>
         <loc>http://localhost:4000/feed-gsoc.xml</loc>
         
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
+          <lastmod>2018-09-30T14:19:26+05:30</lastmod>
         
         
           <changefreq>monthly</changefreq>
@@ -270,7 +75,7 @@
       <url>
         <loc>http://localhost:4000/feed.xml</loc>
         
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
+          <lastmod>2018-09-30T14:19:26+05:30</lastmod>
         
         
           <changefreq>monthly</changefreq>
@@ -287,7 +92,7 @@
       <url>
         <loc>http://localhost:4000/</loc>
         
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
+          <lastmod>2018-09-30T14:19:26+05:30</lastmod>
         
         
           <changefreq>monthly</changefreq>
@@ -304,7 +109,7 @@
       <url>
         <loc>http://localhost:4000/talks/</loc>
         
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
+          <lastmod>2018-09-30T14:19:26+05:30</lastmod>
         
         
           <changefreq>monthly</changefreq>
@@ -321,7 +126,7 @@
       <url>
         <loc>http://localhost:4000/css/main.css</loc>
         
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
+          <lastmod>2018-09-30T14:19:26+05:30</lastmod>
         
         
           <changefreq>monthly</changefreq>
@@ -333,40 +138,6 @@
       
     
   
-    
-  
-    
-      
-      <url>
-        <loc>http://localhost:4000/page2/</loc>
-        
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
-        
-        
-          <changefreq>monthly</changefreq>
-        
-        
-          <priority>0.3</priority>
-        
-      </url>
-      
-    
-  
-    
-      
-      <url>
-        <loc>http://localhost:4000/page3/</loc>
-        
-          <lastmod>2018-09-30T13:07:17+05:30</lastmod>
-        
-        
-          <changefreq>monthly</changefreq>
-        
-        
-          <priority>0.3</priority>
-        
-      </url>
-      
     
   
 </urlset>
